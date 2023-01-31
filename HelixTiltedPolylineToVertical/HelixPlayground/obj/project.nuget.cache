@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XS5YXuRoQ3SswiByzAieEhJQ2+LmNjIELMHe+r0oX8K2WO4veKft+aanQjMpLseFNOenb1DGNSBh1Svje/9ftA==",
+  "dgSpecHash": "7w6cAh4Ul3n1L32GQReOeB7Kmuc+kvJ/N6kj4mKjmldlcBXgFQFnzEi+i8fZQdhd3Whp5OABcQVQ2X/zMOrpZA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\SLZ_D03\\Desktop\\0131\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj",
+  "projectFilePath": "D:\\GitKraken\\TiltedPolylineToVertical\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SLZ_D03\\.nuget\\packages\\cyotek.drawing.bitmapfont\\1.3.4\\cyotek.drawing.bitmapfont.1.3.4.nupkg.sha512",
     "C:\\Users\\SLZ_D03\\.nuget\\packages\\helixtoolkit\\2.12.0\\helixtoolkit.2.12.0.nupkg.sha512",

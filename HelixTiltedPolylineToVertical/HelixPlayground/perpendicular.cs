@@ -14,8 +14,9 @@ namespace HelixPlayground
         List<Vector3> newMidPoints = new List<Vector3>();
         List<Vector3> newPointsGroup = new List<Vector3>();
 
-        public List<Vector3> TiltedPolylineToPerpendicular(List<Vector3> tiltedPolyline)
+        public List<Vector3> TiltedPolylineToPerpendicular(List<Vector3> tiltedPolylineVectors)
         {
+            tiltedPolyline = tiltedPolylineVectors;
             SplitPointsList();
             ReverseEndList();
             SynchronizeTwoCoordinates(tiltedPointsGroupStart);
@@ -24,7 +25,8 @@ namespace HelixPlayground
             PickNewTwoMidPoints();
             ReverseEndList();
             AddToNewList();
-            return tiltedPolyline;
+
+            return newPointsGroup;
         }
 
         public void AddToNewList()
@@ -111,7 +113,7 @@ namespace HelixPlayground
         {
             if (tiltedPolyline.Count % 2 == 1)
             {
-                int t = this.tiltedPolyline.Count;
+                int t = tiltedPolyline.Count;
                 foreach (Vector3 s in tiltedPolyline.GetRange(0, (t - 1) / 2))
                     tiltedPointsGroupStart.Add(s);
                 tiltedPointsGroupMid.Add(tiltedPolyline[(t - 1) / 2]);

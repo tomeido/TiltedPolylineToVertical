@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\SLZ_D03\\Desktop\\0131\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj": {}
+    "D:\\GitKraken\\TiltedPolylineToVertical\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj": {}
   },
   "projects": {
-    "C:\\Users\\SLZ_D03\\Desktop\\0131\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj": {
+    "D:\\GitKraken\\TiltedPolylineToVertical\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\SLZ_D03\\Desktop\\0131\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj",
+        "projectUniqueName": "D:\\GitKraken\\TiltedPolylineToVertical\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj",
         "projectName": "HelixPlayground",
-        "projectPath": "C:\\Users\\SLZ_D03\\Desktop\\0131\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj",
+        "projectPath": "D:\\GitKraken\\TiltedPolylineToVertical\\HelixTiltedPolylineToVertical\\HelixPlayground\\HelixPlayground.csproj",
         "packagesPath": "C:\\Users\\SLZ_D03\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\SLZ_D03\\Desktop\\0131\\HelixTiltedPolylineToVertical\\HelixPlayground\\obj\\",
+        "outputPath": "D:\\GitKraken\\TiltedPolylineToVertical\\HelixTiltedPolylineToVertical\\HelixPlayground\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

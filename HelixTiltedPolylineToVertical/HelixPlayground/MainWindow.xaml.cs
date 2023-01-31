@@ -34,8 +34,9 @@ namespace HelixPlayground
 
             //perpendicular.cs
             InitPolyline(); //임의의 폴리라인 Vector3 리스트 생성
+
             TiltedPolylineToPerpendicular(tiltedPolyline); //폴리라인 Vector3 리스트 입력시, xyz축에 평행하도록 조정된 폴리라인 Vector3 리스트 출력
-            
+
 
             viewport = new Viewport3DX();
             ((Grid)Content).Children.Add(viewport);
@@ -55,9 +56,9 @@ namespace HelixPlayground
             };
 
             MeshBuilder meshBuilder = new MeshBuilder();
-            for(int i = 0; i < tiltedPolyline.Count; i++)
+            for (int i = 0; i < tiltedPolyline.Count; i++)
             {
-                meshBuilder.AddSphere(tiltedPolyline[i]); 
+                meshBuilder.AddSphere(tiltedPolyline[i]);
             }
             MeshGeometryModel3D meshModel1 = new MeshGeometryModel3D()
             {
@@ -98,7 +99,7 @@ namespace HelixPlayground
 
 
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            
+
 
             light = new DirectionalLight3D()
             {
@@ -125,11 +126,11 @@ namespace HelixPlayground
                 Indices = new IntCollection(),
                 Colors = new Color4Collection(),
             };
-            for (int i=0; i < tiltedPolyline.Count; i++)
+            for (int i = 0; i < tiltedPolyline.Count; i++)
             {
                 lineGeometry.Positions.Add(tiltedPolyline[i]);
                 lineGeometry.Indices.Add(i);
-                lineGeometry.Indices.Add(i+1);
+                lineGeometry.Indices.Add(i + 1);
                 lineGeometry.Colors.Add(new Color4(1.0f, 0.5f, 0.1f, 1f));
             }
             lineModel = new LineGeometryModel3D()
@@ -165,9 +166,9 @@ namespace HelixPlayground
             //linebuilder smartrouted line
             var lineBuilder = new LineBuilder();
             LineGeometryModel3D lineModel2 = new LineGeometryModel3D();
-            for (int i = 0; i < tiltedPolyline.Count-1; i++)
+            for (int i = 0; i < tiltedPolyline.Count - 1; i++)
             {
-                lineBuilder.AddLine(tiltedPolyline[i], tiltedPolyline[i+1]);
+                lineBuilder.AddLine(tiltedPolyline[i], tiltedPolyline[i + 1]);
             }
             lineModel2.Geometry = lineBuilder.ToLineGeometry3D();
             lineModel2.Geometry.UpdateVertices();
