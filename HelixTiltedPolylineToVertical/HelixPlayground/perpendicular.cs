@@ -17,6 +17,11 @@ namespace HelixPlayground
         public List<Vector3> TiltedPolylineToPerpendicular(List<Vector3> tiltedPolylineVectors)
         {
             tiltedPolyline = tiltedPolylineVectors;
+            tiltedPointsGroupStart = new List<Vector3>();
+            tiltedPointsGroupMid = new List<Vector3>();
+            tiltedPointsGroupEnd = new List<Vector3>();
+            newMidPoints = new List<Vector3>();
+            newPointsGroup = new List<Vector3>();
             SplitPointsList();
             ReverseEndList();
             SynchronizeTwoCoordinates(tiltedPointsGroupStart);
@@ -24,7 +29,8 @@ namespace HelixPlayground
             PickNewMidPoint();
             ReverseEndList();
             AddToNewList();
-            return newPointsGroup;
+            tiltedPolylineVectors = newPointsGroup;
+            return tiltedPolylineVectors;
         }
 
         public void AddToNewList()
