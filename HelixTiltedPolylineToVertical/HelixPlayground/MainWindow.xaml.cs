@@ -34,7 +34,6 @@ namespace HelixPlayground
 
             //perpendicular.cs
             InitPolyline(); //임의의 폴리라인 Vector3 리스트 생성
-
             TiltedPolylineToPerpendicular(tiltedPolyline); //폴리라인 Vector3 리스트 입력시, xyz축에 평행하도록 조정된 폴리라인 Vector3 리스트 출력
 
 

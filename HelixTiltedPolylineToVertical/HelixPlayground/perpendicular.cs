@@ -14,19 +14,16 @@ namespace HelixPlayground
         List<Vector3> newMidPoints = new List<Vector3>();
         List<Vector3> newPointsGroup = new List<Vector3>();
 
-        public List<Vector3> TiltedPolylineToPerpendicular(List<Vector3> tiltedPolylineVectors)
+        public List<Vector3> TiltedPolylineToPerpendicular(List<Vector3> tiltedPolyline)
         {
-            tiltedPolyline = tiltedPolylineVectors;
             SplitPointsList();
             ReverseEndList();
             SynchronizeTwoCoordinates(tiltedPointsGroupStart);
             SynchronizeTwoCoordinates(tiltedPointsGroupEnd);
-            NewMidPointsBoundingBox();
-            PickNewTwoMidPoints();
+            PickNewMidPoint();
             ReverseEndList();
             AddToNewList();
-
-            return newPointsGroup;
+            return tiltedPolyline;
         }
 
         public void AddToNewList()
@@ -38,6 +35,19 @@ namespace HelixPlayground
             for (int i = 0; i < tiltedPointsGroupEnd.Count; i++)
             {
                 newPointsGroup.Add(tiltedPointsGroupEnd[i]);
+            }
+        }
+
+        public void PickNewOneMidPoints()
+        {
+            if ((newMidPoints[0] - tiltedPointsGroupStart.Last()).Length()
+                >= (newMidPoints[1] - tiltedPointsGroupStart.Last()).Length())
+            {
+                tiltedPointsGroupStart.Add(newMidPoints[1]);
+            }
+            else
+            {
+                tiltedPointsGroupStart.Add(newMidPoints[0]);
             }
         }
 
@@ -66,7 +76,7 @@ namespace HelixPlayground
             }
         }
 
-        public void NewMidPointsBoundingBox()
+        public void PickNewMidPoint()
         {
             if (tiltedPointsGroupStart.Last().X != tiltedPointsGroupEnd.Last().X
                 && tiltedPointsGroupStart.Last().Y != tiltedPointsGroupEnd.Last().Y
@@ -78,6 +88,40 @@ namespace HelixPlayground
                 newMidPoints.Add(new Vector3(tiltedPointsGroupEnd.Last().X, tiltedPointsGroupStart.Last().Y, tiltedPointsGroupStart.Last().Z));
                 newMidPoints.Add(new Vector3(tiltedPointsGroupEnd.Last().X, tiltedPointsGroupStart.Last().Y, tiltedPointsGroupEnd.Last().Z));
                 newMidPoints.Add(new Vector3(tiltedPointsGroupEnd.Last().X, tiltedPointsGroupEnd.Last().Y, tiltedPointsGroupStart.Last().Z));
+                PickNewTwoMidPoints();
+            }
+            else if (tiltedPointsGroupStart.Last().X != tiltedPointsGroupEnd.Last().X
+                && tiltedPointsGroupStart.Last().Y != tiltedPointsGroupEnd.Last().Y)
+            {
+                newMidPoints.Add(new Vector3(tiltedPointsGroupStart.Last().X, tiltedPointsGroupEnd.Last().Y, tiltedPointsGroupStart.Last().Z));
+                newMidPoints.Add(new Vector3(tiltedPointsGroupEnd.Last().X, tiltedPointsGroupStart.Last().Y, tiltedPointsGroupStart.Last().Z));
+                PickNewOneMidPoints();
+            }
+            else if (tiltedPointsGroupStart.Last().Y != tiltedPointsGroupEnd.Last().Y
+                && tiltedPointsGroupStart.Last().Z != tiltedPointsGroupEnd.Last().Z)
+            {
+                newMidPoints.Add(new Vector3(tiltedPointsGroupStart.Last().X, tiltedPointsGroupStart.Last().Y, tiltedPointsGroupEnd.Last().Z));
+                newMidPoints.Add(new Vector3(tiltedPointsGroupStart.Last().X, tiltedPointsGroupEnd.Last().Y, tiltedPointsGroupStart.Last().Z));
+                PickNewOneMidPoints();
+            }
+            else if (tiltedPointsGroupStart.Last().X != tiltedPointsGroupEnd.Last().X
+                && tiltedPointsGroupStart.Last().Z != tiltedPointsGroupEnd.Last().Z)
+            {
+                newMidPoints.Add(new Vector3(tiltedPointsGroupStart.Last().X, tiltedPointsGroupStart.Last().Y, tiltedPointsGroupEnd.Last().Z));
+                newMidPoints.Add(new Vector3(tiltedPointsGroupEnd.Last().X, tiltedPointsGroupStart.Last().Y, tiltedPointsGroupStart.Last().Z));
+                PickNewOneMidPoints();
+            }
+            else if (tiltedPointsGroupStart.Last().X != tiltedPointsGroupEnd.Last().X)
+            {
+
+            }
+            else if (tiltedPointsGroupStart.Last().Y != tiltedPointsGroupEnd.Last().Y)
+            {
+
+            }
+            else if (tiltedPointsGroupStart.Last().Z != tiltedPointsGroupEnd.Last().Z)
+            {
+
             }
         }
 
@@ -113,7 +157,7 @@ namespace HelixPlayground
         {
             if (tiltedPolyline.Count % 2 == 1)
             {
-                int t = tiltedPolyline.Count;
+                int t = this.tiltedPolyline.Count;
                 foreach (Vector3 s in tiltedPolyline.GetRange(0, (t - 1) / 2))
                     tiltedPointsGroupStart.Add(s);
                 tiltedPointsGroupMid.Add(tiltedPolyline[(t - 1) / 2]);
